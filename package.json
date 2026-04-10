@@ -1,0 +1,25 @@
+{
+  "name": "accessibility-checker",
+  "version": "1.0.0",
+  "description": "Run automated accessibility tests against sets of pages for any given website. Useful for quickly identifying low-hanging fruit and keeping track of progress over time.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dustin-jw/accessibility-checker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/dustin-jw/accessibility-checker/issues"
+  },
+  "homepage": "https://github.com/dustin-jw/accessibility-checker#readme",
+  "devDependencies": {
+    "@axe-core/playwright": "^4.11.1",
+    "@playwright/test": "^1.59.1"
+  }
+}
