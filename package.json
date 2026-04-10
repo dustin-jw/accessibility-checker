@@ -4,7 +4,7 @@
   "description": "Run automated accessibility tests against sets of pages for any given website. Useful for quickly identifying low-hanging fruit and keeping track of progress over time.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:e2e": "playwright test"
   },
   "repository": {
     "type": "git",
@@ -13,7 +13,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/dustin-jw/accessibility-checker/issues"
   },
