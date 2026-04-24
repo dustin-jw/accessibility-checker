@@ -1,4 +1,7 @@
 import { defineConfig } from '@playwright/test';
+import { config } from 'dotenv';
+
+config();
 
 export default defineConfig({
 	testDir: './e2e-tests',
@@ -12,7 +15,7 @@ export default defineConfig({
 	workers: 1,
 	reporter: 'list',
 	use: {
-		baseURL: 'https://example.com',
+		baseURL: process.env.BASE_URL ?? 'https://example.com',
 		actionTimeout: 0,
 		trace: 'on-first-retry',
 	},

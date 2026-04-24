@@ -1,12 +1,17 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import pages from '../routes/routes.json' with { type: 'json' };
+import { config } from 'dotenv';
+
+config();
+
+const pages = process.env.TEST_PAGES?.split(',') ?? ['/'];
+const baseUrl = process.env.BASE_URL ?? 'http://example.com';
 
 test.describe('automated accessibility checks', () => {
 	pages.forEach((route) => {
-		test.describe(route, () => {
+		test.describe(`${baseUrl}${route}`, () => {
 			test('should not have any automatically detectable accessibility issues', async ({ page }) => {
-				await page.goto(route);
+				await page.goto(route.trim());
 
 				const accessibilityScanResults = await new AxeBuilder({
 					page,
