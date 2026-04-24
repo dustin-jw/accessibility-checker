@@ -1,0 +1,30 @@
+name: Accessibility Tests
+
+on:
+  workflow_dispatch:
+    inputs:
+      baseUrl:
+        description: 'The domain of the website to test, such as http://example.com'
+        required: true
+        type: string
+      testPages:
+        description: 'The list of pages to test, formatted as CSV with no spaces, like "/,/about,/contact". Leave blank to only test the home page.'
+        required: false
+        default: '/'
+        type: string
+
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install dependencies
+        run: npm ci
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+      - name: Run Playwright tests
+        run: BASE_URL=${{ inputs.baseUrl }} TEST_PAGES=${{ inputs.testPages }} npm run test:e2e
