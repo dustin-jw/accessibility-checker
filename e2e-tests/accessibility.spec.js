@@ -17,7 +17,10 @@ test.describe('automated accessibility checks', () => {
 					page,
 				}).analyze();
 
-				expect(accessibilityScanResults.violations).toEqual([]);
+				console.log('******** Violations ********');
+				console.log(JSON.stringify(accessibilityScanResults.violations, null, 2));
+
+				expect(accessibilityScanResults.violations.length).toEqual(0);
 			});
 		});
 	});

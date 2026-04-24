@@ -11,7 +11,7 @@ export default defineConfig({
 	},
 	fullyParallel: true,
 	forbidOnly: true,
-	retries: 2,
+	retries: 0,
 	workers: 1,
 	reporter: 'list',
 	use: {
@@ -23,7 +23,6 @@ export default defineConfig({
 		{
 			name: 'Default',
 			testMatch: 'accessibility.spec.js',
-			retries: 2,
 		},
 	],
 });
